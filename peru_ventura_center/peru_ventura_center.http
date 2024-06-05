@@ -1,0 +1,6 @@
+@peru_ventura_center_HostAddress = http://localhost:5265
+
+GET {{peru_ventura_center_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

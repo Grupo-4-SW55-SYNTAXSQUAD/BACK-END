@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+	<ItemGroup>
+		<Compile Remove="Publishing\Interfaces\REST\Resources - Copia\**" />
+		<Compile Remove="Publishing\Interfaces\REST\Transform - Copia\**" />
+		<Content Remove="Publishing\Interfaces\REST\Resources - Copia\**" />
+		<Content Remove="Publishing\Interfaces\REST\Transform - Copia\**" />
+		<EmbeddedResource Remove="Publishing\Interfaces\REST\Resources - Copia\**" />
+		<EmbeddedResource Remove="Publishing\Interfaces\REST\Transform - Copia\**" />
+		<None Remove="Publishing\Interfaces\REST\Resources - Copia\**" />
+		<None Remove="Publishing\Interfaces\REST\Transform - Copia\**" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="EntityFrameworkCore.CreatedUpdatedDate" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational.Design" Version="1.1.6" />
+		<PackageReference Include="Humanizer" Version="2.14.1" />
+		<PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.2" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
+	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Profiles\Domain\Model\Entities\" />
+	</ItemGroup>
+
+</Project>
