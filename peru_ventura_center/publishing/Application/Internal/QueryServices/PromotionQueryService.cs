@@ -2,7 +2,6 @@
 using peru_ventura_center.publishing.Domain.Model.Queries;
 using peru_ventura_center.publishing.Domain.Repositories;
 using peru_ventura_center.publishing.Domain.Services;
-using Microsoft.EntityFrameworkCore;
 
 namespace peru_ventura_center.publishing.Application.Internal.QueryServices
 {

@@ -8,8 +8,9 @@ namespace peru_ventura_center.publishing.Infraestructure.Persistence.EFC.Reposit
 {
     public class PromotionRepository(AppDbContext context):BaseRepository<promociones>(context),IPromotionRepository
     {
-        public new async Task<promociones?> FindByIdAsync(int PromocionId) => await Context.Set<promociones>().Include(t => t.PromocionId).Where(t => t.TallerId == PromocionId).FirstOrDefaultAsync();
-
+        public new async Task<promociones?> FindByIdAsync(int PromocionId) => await Context.Set<promociones>().Include(p => p.Comunidad)
+                .Include(p => p.Taller).Where(p => p.PromocionId == PromocionId).FirstOrDefaultAsync();
+        
         public new async Task<IEnumerable<promociones>> ListAsync() => await Context.Set<promociones>()
                 .Include(p => p.Comunidad)
                 .Include(p => p.Taller)

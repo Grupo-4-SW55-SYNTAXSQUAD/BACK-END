@@ -98,7 +98,9 @@ builder.Services.AddScoped<IPromotionCommandService, PromotionCommandService>();
 builder.Services.AddScoped<IPromotionQueryService, PromotionQueryService>();
 builder.Services.AddScoped<ICommunityRepository, CommunityRepository>();
 builder.Services.AddScoped<ICommunityQueryService, CommunityQueryService>();
-
+builder.Services.AddScoped<ICommunityCommandServcice, CommunityCommandService>();
+builder.Services.AddScoped<ITallerRepository, TallerRepository>();
+builder.Services.AddScoped<ITallerQueryService, TallerQueryService>();
 // Profiles Bounded Context Injection Configuration
 /*Coming soon*/
 

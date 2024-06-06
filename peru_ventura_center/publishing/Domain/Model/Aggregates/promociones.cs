@@ -12,12 +12,12 @@ namespace peru_ventura_center.publishing.Domain.Model.Aggregates
 
         public string nombre { get; set; }
         public string descripcion { get; set; }
-        public TimeSpan horaInicio { get; set; }
+        public string horaInicio { get; set; }
         public string ubicacion { get; set; }
         public string oferta { get; set; }
         public decimal precio { get; set; }
 
-        public promociones(string nombre, string descripcion, int ComunidadId, int TallerId, string ubicacion, TimeSpan horaInicio, string oferta, decimal precio)
+        public promociones(string nombre, string descripcion, int ComunidadId, int TallerId, string ubicacion, string horaInicio, string oferta, decimal precio)
         {
             this.nombre = nombre;
             this.descripcion = descripcion;
