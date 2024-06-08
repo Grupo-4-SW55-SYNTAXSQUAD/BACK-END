@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using peru_ventura_center.publishing.Domain.Model.Entities;
 using peru_ventura_center.publishing.Domain.Model.Aggregates;
-using peru_ventura_center.Shared.Infraestructure.Persistence.EFC.Configuration.Extensions;
+using peru_ventura_center.profiles.Domain.Model.Aggregates;
 
 namespace peru_ventura_center.Shared.Infraestructure.Persistence.EFC.Configuration
 {
@@ -46,8 +46,23 @@ namespace peru_ventura_center.Shared.Infraestructure.Persistence.EFC.Configurati
             builder.Entity<Taller>().Property(t1 => t1.horario).IsRequired().HasMaxLength(50);
             builder.Entity<Taller>().Property(t1 => t1.cupoMaximo).IsRequired();
             builder.Entity<Taller>().Property(t1 => t1.medidaSeguridad).IsRequired().HasMaxLength(100);
+            builder.Entity<Taller>().Property(t1 => t1.ComunidadId).IsRequired();
+            builder.Entity<Taller>().Property(t1 => t1.UsuarioId).IsRequired();
 
-
+            builder.Entity<usuario>().HasKey(u => u.UsuarioId);
+            builder.Entity<usuario>().Property(u => u.UsuarioId).ValueGeneratedOnAdd();
+            builder.Entity<usuario>().Property(u => u.nombre).IsRequired().HasMaxLength(100);
+            builder.Entity<usuario>().OwnsOne(
+             u => u.CorreoElectronico,
+             e =>
+             {
+                 e.Property<string>("Address")
+                     .HasColumnName("correoElectronico")
+                     .IsRequired()
+                     .HasMaxLength(100);
+             });
+            builder.Entity<usuario>().Property(u => u.contrasenia).IsRequired().HasMaxLength(100);
+            builder.Entity<usuario>().Property(u => u.ubicacion).IsRequired().HasMaxLength(50);
 
         }
     }

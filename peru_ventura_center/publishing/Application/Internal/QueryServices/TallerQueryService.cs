@@ -11,5 +11,9 @@ namespace peru_ventura_center.publishing.Application.Internal.QueryServices
         {
             return await tallerRepository.FindByIdAsync(query.TallerId);
         }
+        public async Task<IEnumerable<Taller>> Handle(GetAllTalleresQuery query)
+        {
+            return await tallerRepository.ListAsync();
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace peru_ventura_center.publishing.Infraestructure.Persistence.EFC.Reposit
         public new async Task<IEnumerable<promociones>> ListAsync() => await Context.Set<promociones>()
                 .Include(p => p.Comunidad)
                 .Include(p => p.Taller)
+                .ThenInclude(t => t.Usuario)
                 .ToListAsync();
     }
 }

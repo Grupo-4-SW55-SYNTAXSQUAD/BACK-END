@@ -8,6 +8,11 @@ namespace peru_ventura_center.publishing.Infraestructure.Persistence.EFC.Reposit
 {
     public class TallerRepository(AppDbContext context) : BaseRepository<Taller>(context), ITallerRepository
     {
-        public new async Task<Taller?> FindByIdAsync(int ComunidadId) => await Context.Set<Taller>().Where(t => t.TallerId == ComunidadId).FirstOrDefaultAsync();
+        public new async Task<Taller?> FindByIdAsync(int TallerId) => await Context.Set<Taller>().Include(t => t.Comunidad)
+                .Include(t => t.Usuario).Where(t => t.TallerId == TallerId).FirstOrDefaultAsync();
+        public new async Task<IEnumerable<Taller>> ListAsync() => await Context.Set<Taller>()
+            .Include(t=>t.Comunidad)
+            .Include(t=>t.Usuario)
+            . ToListAsync();
     }
 }

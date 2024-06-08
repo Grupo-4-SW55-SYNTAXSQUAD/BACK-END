@@ -6,5 +6,6 @@ namespace peru_ventura_center.publishing.Domain.Services
     public interface ITallerQueryService
     {
         Task<Taller?> Handle(GetTallerByIdQuery query);
+        Task<IEnumerable<Taller>> Handle(GetAllTalleresQuery query);
     }
 }

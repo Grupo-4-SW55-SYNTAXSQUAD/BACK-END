@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using peru_ventura_center.publishing.Application.Internal.OutboundServices.ACL;
 using peru_ventura_center.publishing.Domain.Model.Queries;
 using peru_ventura_center.publishing.Domain.Services;
 using peru_ventura_center.publishing.Interfaces.REST.Resources;
@@ -15,7 +16,8 @@ namespace peru_ventura_center.publishing.Interfaces.REST
         IPromotionCommandService promotionCommandService,
         IPromotionQueryService promotionQueryService,
         ICommunityQueryService communityQueryService, 
-        ITallerQueryService tallerQueryService)
+        ITallerQueryService tallerQueryService,
+        ExternalProfileService externalProfileService)
         : ControllerBase
     {
         [HttpGet]
@@ -70,10 +72,13 @@ namespace peru_ventura_center.publishing.Interfaces.REST
             var taller = await tallerQueryService.Handle(new GetTallerByIdQuery(promotion.TallerId));
             if (taller is null) return BadRequest("No se pudo encontrar el taller correspondiente.");
 
+            // Obtener la entidad Usuario correspondiente al id proporcionado
+            var profile = await externalProfileService.FetchProfileById(promotion.Taller.UsuarioId);
+            if (profile is null) return BadRequest("No se pudo encontrar el usuario correspondiente.");
             // Asociar las entidades Community y Taller con la nueva promoción
             promotion.Comunidad = community;
             promotion.Taller = taller;
-
+            promotion.Taller.Usuario = profile;
 
 
             // Convertir la nueva promoción a un recurso para la respuesta

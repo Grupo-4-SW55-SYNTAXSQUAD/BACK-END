@@ -1,4 +1,4 @@
-﻿namespace LearningCenterPlatform.Publishing.Domain.Model.ValueObjects
+﻿namespace peru_ventura_center.publishing.Domain.Model.ValueObjects
 {
     public record ProfileId(int Id);
 }
