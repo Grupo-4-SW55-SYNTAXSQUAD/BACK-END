@@ -1,6 +1,21 @@
+using LearningCenterPlatform.Profiles.Application.Internal.CommandServices;
+using LearningCenterPlatform.Profiles.Application.Internal.QueryServices;
+using LearningCenterPlatform.Profiles.Infraestructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using peru_ventura_center.payments.Application.Internal.CommandServices;
+using peru_ventura_center.payments.Application.Internal.QueryServices;
+using peru_ventura_center.payments.Domain.Repositories;
+using peru_ventura_center.payments.Domain.Services;
+using peru_ventura_center.payments.Infrastructure.Persistence.ACL;
+using peru_ventura_center.payments.Infrastructure.Persistence.ACL.Services;
+using peru_ventura_center.payments.Infrastructure.Persistence.EFC.Repositories;
+using peru_ventura_center.profiles.Domain.Repositories;
+using peru_ventura_center.profiles.Domain.Services;
+using peru_ventura_center.profiles.Infrastructure.Persistence.ACL;
+using peru_ventura_center.profiles.Infrastructure.Persistence.ACL.Services;
 using peru_ventura_center.publishing.Application.Internal.CommandServices;
+using peru_ventura_center.publishing.Application.Internal.OutboundServices.ACL;
 using peru_ventura_center.publishing.Application.Internal.QueryServices;
 using peru_ventura_center.publishing.Domain.Repositories;
 using peru_ventura_center.publishing.Domain.Services;
@@ -14,7 +29,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers(options=>options.Conventions.Add(new KebabCaseRouteNamingConvention()));
+builder.Services.AddControllers(options => options.Conventions.Add(new KebabCaseRouteNamingConvention()));
 
 // Add Database Connection
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -101,8 +116,18 @@ builder.Services.AddScoped<ICommunityQueryService, CommunityQueryService>();
 builder.Services.AddScoped<ICommunityCommandServcice, CommunityCommandService>();
 builder.Services.AddScoped<ITallerRepository, TallerRepository>();
 builder.Services.AddScoped<ITallerQueryService, TallerQueryService>();
+builder.Services.AddScoped<ExternalProfileService>();
 // Profiles Bounded Context Injection Configuration
-/*Coming soon*/
+builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
+builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
+builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
+builder.Services.AddScoped<IProfileContextFacade, ProfilesContextFacade>();
+
+// Reservation Status Context Injection Configuration
+builder.Services.AddScoped<IBookingStateRepository, BookingStateRepository>();
+builder.Services.AddScoped<IBookingStateCommandService, BookingStateCommandService>();
+builder.Services.AddScoped<IBookingStateQueryService, BookingStateQueryService>();
+builder.Services.AddScoped<IBookingStateContextFacade, BookingStateContextFacade>();
 
 var app = builder.Build();
 
