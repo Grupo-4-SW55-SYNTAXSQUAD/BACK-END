@@ -2,4 +2,3 @@
 {
     public record CreateBookingCommand(string state);
 }
-s

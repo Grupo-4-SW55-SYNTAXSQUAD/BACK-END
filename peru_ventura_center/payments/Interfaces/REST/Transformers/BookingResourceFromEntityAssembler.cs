@@ -13,7 +13,7 @@ namespace peru_ventura_center.payments.Interfaces.REST.Transformers
                 Console.WriteLine("La entidad usuario es null en ToResourceFromEntity.");
                 return null;
             }
-            return new BookingStateStatusResource(entity.booking_state_id);
+            return new BookingResource(entity.booking_state_id, entity.state);
         }
     }
 }
