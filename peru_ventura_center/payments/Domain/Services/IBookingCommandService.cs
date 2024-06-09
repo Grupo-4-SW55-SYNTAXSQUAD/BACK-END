@@ -3,8 +3,8 @@ using peru_ventura_center.payments.Domain.Model.Commands;
 
 namespace peru_ventura_center.payments.Domain.Services
 {
-    public interface IBookingStateCommandService
+    public interface IBookingCommandService
     {
-        Task<BookingState?> Handle(CreateBookingStateCommand command);
+        Task<Booking?> Handle(CreateBookingCommand command);
     }
 }

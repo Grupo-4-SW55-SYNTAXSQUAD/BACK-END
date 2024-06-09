@@ -3,9 +3,9 @@ using peru_ventura_center.Shared.Domain.Repositories;
 
 namespace peru_ventura_center.payments.Domain.Repositories
 {
-    public interface IBookingStateRepository : IBaseRepository<BookingState>
+    public interface IBookingRepository : IBaseRepository<Booking>
     {
-        Task<BookingState?> FindProfileByIdAsync(int id);
+        Task<Booking?> FindProfileByIdAsync(int id);
 
     }
 }
