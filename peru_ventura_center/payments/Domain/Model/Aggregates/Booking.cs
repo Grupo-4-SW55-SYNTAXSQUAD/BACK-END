@@ -5,7 +5,7 @@ namespace peru_ventura_center.payments.Domain.Model.Aggregates
     public class Booking
     {
 
-        public int booking_state_id { get; set; }
+        public int booking_id { get; set; }
         public string state { get; set; }
 
         public Booking()
@@ -14,14 +14,14 @@ namespace peru_ventura_center.payments.Domain.Model.Aggregates
         }
 
 
-        public Booking(string estado)
+        public Booking(string state)
         {
-            this.state = state;
+            this.state = this.state;
         }
 
-        public Booking(CreateBookingCommand reservationStatusCommand)
+        public Booking(CreateBookingCommand bookingCommand)
         {
-            this.state = reservationStatusCommand.state;
+            this.state = bookingCommand.state;
         }
     }
 }

@@ -5,9 +5,9 @@ namespace peru_ventura_center.payments.Interfaces.REST.Transformers
 {
     public static class CreateBookingCommandFromResourceAssembler
     {
-        public static CreateBookingCommand ToCommandFromResource(BookingResource resource)
+        public static CreateBookingCommand ToCommandFromResource(CreateBookingResource resource)
         {
-            return new CreateBookingCommand(resource.status);
+            return new CreateBookingCommand(resource.state);
         }
     }
 }

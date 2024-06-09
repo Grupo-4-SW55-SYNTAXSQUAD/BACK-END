@@ -6,19 +6,19 @@ using peru_ventura_center.payments.Domain.Services;
 
 namespace peru_ventura_center.payments.Infrastructure.Persistence.ACL.Services
 {
-    public class BookingContextFacade(IBookingCommandService bookingStateCommandService, IBookingQueryService bookingStateQueryService) : IBookingContextFacade
+    public class BookingContextFacade(IBookingCommandService bookingCommandService, IBookingQueryService bookingQueryService) : IBookingContextFacade
     {
-        public async Task<int> CreateReservationStatus(string state)
+        public async Task<int> CreateBooking(string state)
         {
-            var createReservationStatusCommand = new CreateBookingCommand(state);
-            var bookingState = await bookingStateCommandService.Handle(createReservationStatusCommand);
-            return bookingState?.booking_state_id ?? 0;
+            var createBookingCommand = new CreateBookingCommand(state);
+            var booking = await bookingCommandService.Handle(createBookingCommand);
+            return booking?.booking_id ?? 0;
         }
 
-        public async Task<Booking?> FetchReservationStatusById(int id)
+        public async Task<Booking?> FetchBookingById(int id)
         {
-            var getBookingStateByIdQuery = new GetBookingByIdQuery(id);
-            var bookingState = await bookingStateQueryService.Handle(getBookingStateByIdQuery);
+            var getBookingByIdQuery = new GetBookingByIdQuery(id);
+            var bookingState = await bookingQueryService.Handle(getBookingByIdQuery);
             return bookingState;
         }
     }

@@ -8,9 +8,9 @@ namespace peru_ventura_center.payments.Infrastructure.Persistence.EFC.Repositori
 {
     public class BookingRepository(AppDbContext context) : BaseRepository<Booking>(context), IBookingRepository
     {
-        public Task<Booking?> FindProfileByIdAsync(int id)
+        public Task<Booking?> FindBookingByIdAsync(int booking_id)
         {
-            return Context.Set<Booking>().Where(p => p.booking_state_id == id).FirstOrDefaultAsync();
+            return Context.Set<Booking>().Where(p => p.booking_id == booking_id).FirstOrDefaultAsync();
         }
     }
 }

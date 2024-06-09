@@ -5,7 +5,7 @@ namespace peru_ventura_center.payments.Domain.Repositories
 {
     public interface IBookingRepository : IBaseRepository<Booking>
     {
-        Task<Booking?> FindProfileByIdAsync(int id);
+        Task<Booking?> FindBookingByIdAsync(int booking_id);
 
     }
 }

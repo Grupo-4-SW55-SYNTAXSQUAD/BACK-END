@@ -4,7 +4,7 @@ namespace peru_ventura_center.payments.Infrastructure.Persistence.ACL
 {
     public interface IBookingContextFacade
     {
-        Task<int> CreateReservationStatus(string state);
-        Task<Booking?> FetchReservationStatusById(int id);
+        Task<int> CreateBooking(string state);
+        Task<Booking?> FetchBookingById(int booking_id);
     }
 }
