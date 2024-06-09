@@ -4,6 +4,7 @@ using peru_ventura_center.profiles.Domain.Model.Aggregates;
 using peru_ventura_center.Shared.Infraestructure.Persistence.EFC.Configuration.Extensions;
 using peru_ventura_center.Publishing.Domain.Model.Aggregates;
 using peru_ventura_center.Publishing.Domain.Model.Entities;
+using peru_ventura_center.Payments.Domain.Model.Aggregates;
 
 namespace peru_ventura_center.Shared.Infraestructure.Persistence.EFC.Configuration
 {
@@ -73,6 +74,25 @@ namespace peru_ventura_center.Shared.Infraestructure.Persistence.EFC.Configurati
             builder.Entity<DestinationTrip>().Property(d => d.Description).IsRequired().HasMaxLength(500);
             builder.Entity<DestinationTrip>().Property(d => d.Location).IsRequired().HasMaxLength(50);
             builder.Entity<DestinationTrip>().Property(d => d.ActivityId).IsRequired();
+
+            builder.Entity<Payment>().HasKey(p => p.PaymentId);
+            builder.Entity<Payment>().Property(p => p.PaymentId).ValueGeneratedOnAdd();
+            builder.Entity<Payment>().Property(p => p.Amount).IsRequired();
+            builder.Entity<Payment>().Property(d => d.PaymentDate).IsRequired();
+            builder.Entity<Payment>().Property(d => d.PaymentTypeId).IsRequired();
+            builder.Entity<Payment>().Property(d => d.PaymentStateId).IsRequired();
+
+            builder.Entity<PaymentState>().HasKey(s => s.PaymentStateId);
+            builder.Entity<PaymentState>().Property(s => s.PaymentStateId).ValueGeneratedOnAdd();
+            builder.Entity<PaymentState>().Property(s => s.State).IsRequired().HasMaxLength(20);
+
+            builder.Entity<PaymentType>().HasKey(t => t.PaymentTypeId);
+            builder.Entity<PaymentType>().Property(t => t.PaymentTypeId).ValueGeneratedOnAdd();
+            builder.Entity<PaymentType>().Property(t => t.Type).IsRequired();
+
+
+
+
             //SnakeCase
             builder.UseSnakeCaseWithPluralizedTableNamingConvention();
         }

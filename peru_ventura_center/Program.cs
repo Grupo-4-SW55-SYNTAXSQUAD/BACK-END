@@ -3,6 +3,11 @@ using LearningCenterPlatform.Profiles.Application.Internal.QueryServices;
 using LearningCenterPlatform.Profiles.Infraestructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using peru_ventura_center.Payments.Application.Internal.CommandServices;
+using peru_ventura_center.Payments.Application.Internal.QueryServices;
+using peru_ventura_center.Payments.Domain.Repositories;
+using peru_ventura_center.Payments.Domain.Services;
+using peru_ventura_center.Payments.Infrastructure.Persistence.EFC.Repositories;
 using peru_ventura_center.profiles.Domain.Repositories;
 using peru_ventura_center.profiles.Domain.Services;
 using peru_ventura_center.profiles.Infrastructure.Persistence.ACL;
@@ -126,6 +131,15 @@ builder.Services.AddScoped<IReviewQueryServices, ReviewQueryServices>();
 builder.Services.AddScoped<IReviewCommandServices, ReviewCommandServices>();
 builder.Services.AddScoped<IDestinationTripRepository, DestinationTripRepository>();
 builder.Services.AddScoped<IDestinationTripQueryServices, DestinationTripQueryServices>();
+
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<IPaymentCommandServices, PaymentCommandServices>();
+builder.Services.AddScoped<IPaymentQueryServices, PaymentQueryServices>();
+builder.Services.AddScoped<IPaymentStateRepository, PaymentStateRepository>();
+builder.Services.AddScoped<IPaymentStateQueryServices, PaymentStateQueryServices>();
+builder.Services.AddScoped<IPaymentTypeRepository, PaymentTypeRepository>();
+builder.Services.AddScoped<IPaymentTypeQueryServices, PaymentTypeQueryServices>();
+
 var app = builder.Build();
 
 // Verify Database Objects are created

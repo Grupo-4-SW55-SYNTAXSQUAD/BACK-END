@@ -8193,19 +8193,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PAOLO\\.nuget\\packages\\": {}
+    "C:\\Users\\Lynn\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\peru_ventura_center.csproj",
+      "projectUniqueName": "D:\\CICLO\\UPC\\CICLO 8\\Aplicaciones Web\\Trabajo final\\TB!\\Backend-PeruVentura\\peru_ventura_center\\peru_ventura_center.csproj",
       "projectName": "peru_ventura_center",
-      "projectPath": "D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\peru_ventura_center.csproj",
-      "packagesPath": "C:\\Users\\PAOLO\\.nuget\\packages\\",
-      "outputPath": "D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\obj\\",
+      "projectPath": "D:\\CICLO\\UPC\\CICLO 8\\Aplicaciones Web\\Trabajo final\\TB!\\Backend-PeruVentura\\peru_ventura_center\\peru_ventura_center.csproj",
+      "packagesPath": "C:\\Users\\Lynn\\.nuget\\packages\\",
+      "outputPath": "D:\\CICLO\\UPC\\CICLO 8\\Aplicaciones Web\\Trabajo final\\TB!\\Backend-PeruVentura\\peru_ventura_center\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\PAOLO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lynn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8213,6 +8218,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8288,7 +8294,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

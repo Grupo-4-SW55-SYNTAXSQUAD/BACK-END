@@ -29,6 +29,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Payments\Domain\Model\Entities\" />
+    <Folder Include="Payments\Domain\Model\ValueObjects\" />
     <Folder Include="profiles\Domain\Model\Entities\" />
   </ItemGroup>
 
