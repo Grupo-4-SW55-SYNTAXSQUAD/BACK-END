@@ -3,17 +3,17 @@ using peru_ventura_center.payments.Interfaces.REST.Resources;
 
 namespace peru_ventura_center.payments.Interfaces.REST.Transformers
 {
-    public static class BookingResourceFromEntityAssembler
+    public static class BookingStateResourceFromEntityAssembler
     {
 
-        public static BookingResource ToResourceFromEntity(Booking entity)
+        public static BookingStateResource ToResourceFromEntity(BookingState entity)
         {
             if (entity == null)
             {
                 Console.WriteLine("La entidad usuario es null en ToResourceFromEntity.");
                 return null;
             }
-            return new BookingResource(entity.booking_id, entity.state);
+            return new BookingStateResource(entity.booking_state_id, entity.state);
         }
     }
 }

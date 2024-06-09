@@ -65,8 +65,8 @@ namespace peru_ventura_center.Shared.Infraestructure.Persistence.EFC.Configurati
             builder.Entity<usuario>().Property(u => u.contrasenia).IsRequired().HasMaxLength(100);
             builder.Entity<usuario>().Property(u => u.ubicacion).IsRequired().HasMaxLength(50);
 
-            builder.Entity<Booking>().HasKey(bs => bs.booking_id);
-            builder.Entity<Booking>().Property(bs => bs.state).IsRequired().HasMaxLength(25);
+            builder.Entity<BookingState>().HasKey(bs => bs.booking_state_id);
+            builder.Entity<BookingState>().Property(bs => bs.state).IsRequired().HasMaxLength(25);
         }
     }
 }

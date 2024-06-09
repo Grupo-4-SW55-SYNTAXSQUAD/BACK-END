@@ -124,10 +124,10 @@ builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
 builder.Services.AddScoped<IProfileContextFacade, ProfilesContextFacade>();
 
 // Reservation Status Context Injection Configuration
-builder.Services.AddScoped<IBookingRepository, BookingRepository>();
-builder.Services.AddScoped<IBookingCommandService, BookingCommandService>();
-builder.Services.AddScoped<IBookingQueryService, BookingQueryService>();
-builder.Services.AddScoped<IBookingContextFacade, BookingContextFacade>();
+builder.Services.AddScoped<IBookingStateRepository, BookingStateRepository>();
+builder.Services.AddScoped<IBookingStateCommandService, BookingStateCommandService>();
+builder.Services.AddScoped<IBookingStateQueryService, BookingStateQueryService>();
+builder.Services.AddScoped<IBookingStateContextFacade, BookingStateContextFacade>();
 
 var app = builder.Build();
 

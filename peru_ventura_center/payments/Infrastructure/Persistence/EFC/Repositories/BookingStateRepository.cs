@@ -6,11 +6,11 @@ using peru_ventura_center.Shared.Infraestructure.Persistence.EFC.Repositories;
 
 namespace peru_ventura_center.payments.Infrastructure.Persistence.EFC.Repositories
 {
-    public class BookingRepository(AppDbContext context) : BaseRepository<Booking>(context), IBookingRepository
+    public class BookingStateRepository(AppDbContext context) : BaseRepository<BookingState>(context), IBookingStateRepository
     {
-        public Task<Booking?> FindBookingByIdAsync(int booking_id)
+        public Task<BookingState?> FindBookingByIdAsync(int booking_state_id)
         {
-            return Context.Set<Booking>().Where(p => p.booking_id == booking_id).FirstOrDefaultAsync();
+            return Context.Set<BookingState>().Where(p => p.booking_state_id == booking_state_id).FirstOrDefaultAsync();
         }
     }
 }

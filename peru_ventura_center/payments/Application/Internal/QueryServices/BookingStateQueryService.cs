@@ -5,14 +5,14 @@ using peru_ventura_center.payments.Domain.Services;
 
 namespace peru_ventura_center.payments.Application.Internal.QueryServices
 {
-    public class BookingQueryService(IBookingRepository boookingRepository) : IBookingQueryService
+    public class BookingStateQueryService(IBookingStateRepository boookingRepository) : IBookingStateQueryService
     {
-        public async Task<IEnumerable<Booking>> Handle(GetAllBookingQuery query)
+        public async Task<IEnumerable<BookingState>> Handle(GetAllBookingStateQuery query)
         {
             return await boookingRepository.ListAsync();
         }
 
-        public async Task<Booking?> Handle(GetBookingByIdQuery query)
+        public async Task<BookingState?> Handle(GetBookingStateByIdQuery query)
         {
             return await boookingRepository.FindByIdAsync(query.booking_id);
         }

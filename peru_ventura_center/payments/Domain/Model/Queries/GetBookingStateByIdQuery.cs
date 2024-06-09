@@ -1,5 +1,5 @@
 ﻿namespace peru_ventura_center.payments.Domain.Model.Queries
 {
-    public record GetBookingByIdQuery(int booking_id);
+    public record GetBookingStateByIdQuery(int booking_id);
 
 }

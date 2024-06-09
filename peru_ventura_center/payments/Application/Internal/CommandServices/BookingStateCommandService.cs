@@ -8,16 +8,16 @@ using peru_ventura_center.Shared.Domain.Repositories;
 
 namespace peru_ventura_center.payments.Application.Internal.CommandServices
 {
-    public class BookingCommandService(IBookingRepository bookingRepository, IUnitOfWork unitOfWork) : IBookingCommandService
+    public class BookingStateCommandService(IBookingStateRepository bookingRepository, IUnitOfWork unitOfWork) : IBookingStateCommandService
     {
-        public async Task<Booking?> Handle(CreateBookingCommand command)
+        public async Task<BookingState?> Handle(CreateBookingStateCommand command)
         {
-            var bookingData = new Booking(command);
+            var bookingStateData = new BookingState(command);
             try
             {
-                await bookingRepository.AddAsync(bookingData);
+                await bookingRepository.AddAsync(bookingStateData);
                 await unitOfWork.CompleteAsync();
-                return bookingData;
+                return bookingStateData;
             }
             catch (Exception e)
             {
