@@ -18,8 +18,8 @@ namespace peru_ventura_center.payments.Infrastructure.Persistence.ACL.Services
         public async Task<Booking?> FetchBookingById(int id)
         {
             var getBookingByIdQuery = new GetBookingByIdQuery(id);
-            var bookingState = await bookingQueryService.Handle(getBookingByIdQuery);
-            return bookingState;
+            var booking = await bookingQueryService.Handle(getBookingByIdQuery);
+            return booking;
         }
     }
 }
