@@ -13,6 +13,11 @@ using peru_ventura_center.publishing.Application.Internal.QueryServices;
 using peru_ventura_center.publishing.Domain.Repositories;
 using peru_ventura_center.publishing.Domain.Services;
 using peru_ventura_center.publishing.Infraestructure.Persistence.EFC.Repositories;
+using peru_ventura_center.Publishing.Application.Internal.CommandServices;
+using peru_ventura_center.Publishing.Application.Internal.QueryServices;
+using peru_ventura_center.Publishing.Domain.Repositories;
+using peru_ventura_center.Publishing.Domain.Services;
+using peru_ventura_center.Publishing.Infraestructure.Persistence.EFC.Repositories;
 using peru_ventura_center.Shared.Domain.Repositories;
 using peru_ventura_center.Shared.Infraestructure.Persistence.EFC.Configuration;
 using peru_ventura_center.Shared.Infraestructure.Persistence.EFC.Repositories;
@@ -104,18 +109,23 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IPromotionRepository, PromotionRepository>();
 builder.Services.AddScoped<IPromotionCommandService, PromotionCommandService>();
 builder.Services.AddScoped<IPromotionQueryService, PromotionQueryService>();
-builder.Services.AddScoped<ICommunityRepository, CommunityRepository>();
-builder.Services.AddScoped<ICommunityQueryService, CommunityQueryService>();
-builder.Services.AddScoped<ICommunityCommandServcice, CommunityCommandService>();
-builder.Services.AddScoped<ITallerRepository, TallerRepository>();
-builder.Services.AddScoped<ITallerQueryService, TallerQueryService>();
-builder.Services.AddScoped<ExternalProfileService>();
+/*
 // Profiles Bounded Context Injection Configuration
 builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
 builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
 builder.Services.AddScoped<IProfileContextFacade, ProfilesContextFacade>();
-
+*/
+builder.Services.AddScoped<IActivityRepository, ActivityRepository>();
+builder.Services.AddScoped<IActivityCommandServices, ActivityCommandServices>();
+builder.Services.AddScoped<IActivityQueryServices, ActivityQueryServices>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryQueryService, CategoryQueryServices>();
+builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+builder.Services.AddScoped<IReviewQueryServices, ReviewQueryServices>();
+builder.Services.AddScoped<IReviewCommandServices, ReviewCommandServices>();
+builder.Services.AddScoped<IDestinationTripRepository, DestinationTripRepository>();
+builder.Services.AddScoped<IDestinationTripQueryServices, DestinationTripQueryServices>();
 var app = builder.Build();
 
 // Verify Database Objects are created

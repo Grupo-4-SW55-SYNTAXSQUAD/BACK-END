@@ -8,14 +8,10 @@ namespace peru_ventura_center.publishing.Interfaces.REST.Transformers
         public static CreatePromotionCommand ToCommandFromResource(CreatePromotionResource resource)
         {
             return new CreatePromotionCommand(
-                resource.name,
-                resource.description,
-                resource.idCommunity,
-                resource.idTaller,
-                resource.location,
-                resource.horaInicio,
-                resource.offer,
-                resource.price
+                resource.DestinationTripId,
+                resource.Name,
+                resource.Description,
+                resource.Offer
                 );
         }
     }

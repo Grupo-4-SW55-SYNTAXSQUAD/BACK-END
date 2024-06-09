@@ -1,34 +1,22 @@
-﻿namespace peru_ventura_center.publishing.Domain.Model.Entities
+﻿namespace peru_ventura_center.Publishing.Domain.Model.Entities
 {
     public class Promotion
     {
-        public int idPromocion { get; set; }
-        public string nombre { get; set; }
-        public string descripcion { get; set; }
-        public DateTime horaInicio { get; set; }
-        public string ubicacion { get; set; }
-        public string oferta { get; set; }
-        public decimal precio { get; set; }
+        public int PromotionId { get; set; }
+        public DestinationTrip DestinationTrip { get; set; }
+        public int DestinationTripId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Offer { get; set; }
 
-        public Promotion()
+
+        public Promotion(int DestinationTripId, string Name, string Description, string Offer )
         {
-            nombre = string.Empty;
-            descripcion = string.Empty;
-            horaInicio = DateTime.Now;
-            ubicacion = string.Empty;
-            oferta = string.Empty;
-            precio = 0;
-
+            this.DestinationTripId = DestinationTripId;
+            this.Name = Name;
+            this.Description = Description;
+            this.Offer = Offer;
         }
 
-        public Promotion(string nombre, string descripcion, string ubicacion, DateTime horaInicio, string oferta, decimal precio)
-        {
-            this.nombre = nombre;
-            this.descripcion = descripcion;
-            this.ubicacion = ubicacion;
-            this.horaInicio = horaInicio;
-            this.oferta = oferta;
-            this.precio = precio;
-        }
     }
 }

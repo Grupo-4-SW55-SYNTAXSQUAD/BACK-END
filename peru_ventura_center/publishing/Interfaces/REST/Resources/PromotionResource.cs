@@ -1,14 +1,13 @@
-﻿namespace peru_ventura_center.publishing.Interfaces.REST.Resources
+﻿using peru_ventura_center.Publishing.Interfaces.REST.Resources;
+
+namespace peru_ventura_center.publishing.Interfaces.REST.Resources
 {
     public record PromotionResource(
-        int PromocionId, 
-        string name, 
-        string description, 
-        CommunityResource Community, 
-        TallerResource Taller, 
-        string location, 
-        string horaInicio, 
-        string offer, 
-        decimal price);
+        int PromotionId,
+        DestinationTripResource DestinationTrip,
+        string Name,
+        string Description,
+        string Offer
+       );
   
 }

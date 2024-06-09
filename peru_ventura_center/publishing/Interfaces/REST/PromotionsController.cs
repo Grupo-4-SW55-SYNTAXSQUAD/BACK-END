@@ -4,6 +4,8 @@ using peru_ventura_center.publishing.Domain.Model.Queries;
 using peru_ventura_center.publishing.Domain.Services;
 using peru_ventura_center.publishing.Interfaces.REST.Resources;
 using peru_ventura_center.publishing.Interfaces.REST.Transformers;
+using peru_ventura_center.Publishing.Domain.Model.Queries;
+using peru_ventura_center.Publishing.Domain.Services;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Mime;
 
@@ -14,10 +16,7 @@ namespace peru_ventura_center.publishing.Interfaces.REST
     [Produces(MediaTypeNames.Application.Json)]
     public class PromotionsController(
         IPromotionCommandService promotionCommandService,
-        IPromotionQueryService promotionQueryService,
-        ICommunityQueryService communityQueryService, 
-        ITallerQueryService tallerQueryService,
-        ExternalProfileService externalProfileService)
+        IPromotionQueryService promotionQueryService, IDestinationTripQueryServices destinationTripQueryServices,IActivityQueryServices activityQueryServices)
         : ControllerBase
     {
         [HttpGet]
@@ -34,16 +33,16 @@ namespace peru_ventura_center.publishing.Interfaces.REST
             return Ok(resource);
         }
 
-        [HttpGet("{PromocionId:int}")]
+        [HttpGet("{PromotionId:int}")]
         [SwaggerOperation(
             Summary = "Gets a promotion by id",
             Description = "Gets a promotion for a given identifier",
             OperationId = "GetpromotionById"
         )]
         [SwaggerResponse(200, "The promotion was found")]
-        public async Task<IActionResult> GetPromotionById([FromRoute] int PromocionId)
+        public async Task<IActionResult> GetPromotionById([FromRoute] int PromotionId)
         {
-            var prmotion = await promotionQueryService.Handle(new GetPromotionByIdQuery(PromocionId));
+            var prmotion = await promotionQueryService.Handle(new GetPromotionByIdQuery(PromotionId));
             if (prmotion is null) return NotFound();
             var resource = PromotionResourceFromEntityAssembler.ToResourceFromEntity(prmotion);
             return Ok(resource);
@@ -64,28 +63,22 @@ namespace peru_ventura_center.publishing.Interfaces.REST
             if (promotion is null) return BadRequest();
 
 
-            // Obtener la entidad Community correspondiente al id proporcionado
-            var community = await communityQueryService.Handle(new GetCommunityByIdQuery(promotion.ComunidadId));
-            if (community is null) return BadRequest("No se pudo encontrar la comunidad correspondiente.");
+            var destinationTrip = await destinationTripQueryServices.Handle(new GetDestinationTripById(promotion.DestinationTripId));
+            if (destinationTrip is null) return BadRequest("No se pudo encontrar la comunidad correspondiente.");
 
-            // Obtener la entidad Taller correspondiente al id proporcionado
-            var taller = await tallerQueryService.Handle(new GetTallerByIdQuery(promotion.TallerId));
-            if (taller is null) return BadRequest("No se pudo encontrar el taller correspondiente.");
+            var activity = await activityQueryServices.Handle(new GetActivityByIdQuery(promotion.DestinationTrip.ActivityId));
+            if (activity is null) return BadRequest("No se pudo encontrar el taller correspondiente.");
 
-            // Obtener la entidad Usuario correspondiente al id proporcionado
-            var profile = await externalProfileService.FetchProfileById(promotion.Taller.UsuarioId);
-            if (profile is null) return BadRequest("No se pudo encontrar el usuario correspondiente.");
-            // Asociar las entidades Community y Taller con la nueva promoción
-            promotion.Comunidad = community;
-            promotion.Taller = taller;
-            promotion.Taller.Usuario = profile;
+         
+            promotion.DestinationTrip = destinationTrip;
+            promotion.DestinationTrip.Activity = activity;
 
 
             // Convertir la nueva promoción a un recurso para la respuesta
             var resource = PromotionResourceFromEntityAssembler.ToResourceFromEntity(promotion);
             // Devolver la respuesta con el recurso de la promoción creada
 
-            return CreatedAtAction(nameof(GetPromotionById), new { PromocionId = resource.PromocionId }, resource);
+            return CreatedAtAction(nameof(GetPromotionById), new { PromotionId = resource.PromotionId }, resource);
         }
     }
     
