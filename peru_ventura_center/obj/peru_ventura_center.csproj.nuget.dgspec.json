@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\peru_ventura_center.csproj": {}
+    "C:\\Users\\young\\Escritorio\\university\\aplicaciones-web\\backend\\peru_ventura_center\\peru_ventura_center.csproj": {}
   },
   "projects": {
-    "D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\peru_ventura_center.csproj": {
+    "C:\\Users\\young\\Escritorio\\university\\aplicaciones-web\\backend\\peru_ventura_center\\peru_ventura_center.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\peru_ventura_center.csproj",
+        "projectUniqueName": "C:\\Users\\young\\Escritorio\\university\\aplicaciones-web\\backend\\peru_ventura_center\\peru_ventura_center.csproj",
         "projectName": "peru_ventura_center",
-        "projectPath": "D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\peru_ventura_center.csproj",
-        "packagesPath": "C:\\Users\\PAOLO\\.nuget\\packages\\",
-        "outputPath": "D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\obj\\",
+        "projectPath": "C:\\Users\\young\\Escritorio\\university\\aplicaciones-web\\backend\\peru_ventura_center\\peru_ventura_center.csproj",
+        "packagesPath": "C:\\Users\\young\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\young\\Escritorio\\university\\aplicaciones-web\\backend\\peru_ventura_center\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\PAOLO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\young\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
