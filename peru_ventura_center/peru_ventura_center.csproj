@@ -29,7 +29,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Feedback\Domain\Model\Entities\" />
     <Folder Include="profiles\Domain\Model\Entities\" />
+    <Folder Include="Publishing\Domain\Model\Aggregates\" />
   </ItemGroup>
 
 </Project>

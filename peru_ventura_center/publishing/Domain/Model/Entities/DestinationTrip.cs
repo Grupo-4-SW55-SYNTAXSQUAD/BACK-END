@@ -1,4 +1,4 @@
-﻿using peru_ventura_center.Publishing.Domain.Model.Aggregates;
+﻿using peru_ventura_center.Feedback.Domain.Model.Aggregates;
 
 namespace peru_ventura_center.Publishing.Domain.Model.Entities
 {

@@ -2,8 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using peru_ventura_center.profiles.Domain.Model.Aggregates;
 using peru_ventura_center.Shared.Infraestructure.Persistence.EFC.Configuration.Extensions;
-using peru_ventura_center.Publishing.Domain.Model.Aggregates;
 using peru_ventura_center.Publishing.Domain.Model.Entities;
+using peru_ventura_center.Feedback.Domain.Model.Aggregates;
 
 namespace peru_ventura_center.Shared.Infraestructure.Persistence.EFC.Configuration
 {

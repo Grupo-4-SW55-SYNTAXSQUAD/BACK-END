@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using peru_ventura_center.publishing.Application.Internal.OutboundServices.ACL;
 using peru_ventura_center.publishing.Domain.Model.Queries;
 using peru_ventura_center.publishing.Domain.Services;
 using peru_ventura_center.publishing.Interfaces.REST.Resources;
 using peru_ventura_center.publishing.Interfaces.REST.Transformers;
+using peru_ventura_center.Publishing.Application.Internal.OutboundServices.ACL;
 using peru_ventura_center.Publishing.Domain.Model.Queries;
 using peru_ventura_center.Publishing.Domain.Services;
 using Swashbuckle.AspNetCore.Annotations;
@@ -16,7 +16,7 @@ namespace peru_ventura_center.publishing.Interfaces.REST
     [Produces(MediaTypeNames.Application.Json)]
     public class PromotionsController(
         IPromotionCommandService promotionCommandService,
-        IPromotionQueryService promotionQueryService, IDestinationTripQueryServices destinationTripQueryServices,IActivityQueryServices activityQueryServices)
+        IPromotionQueryService promotionQueryService, IDestinationTripQueryServices destinationTripQueryServices,ExternalFeedbackService externalIFeedbackService)
         : ControllerBase
     {
         [HttpGet]
@@ -64,10 +64,10 @@ namespace peru_ventura_center.publishing.Interfaces.REST
 
 
             var destinationTrip = await destinationTripQueryServices.Handle(new GetDestinationTripById(promotion.DestinationTripId));
-            if (destinationTrip is null) return BadRequest("No se pudo encontrar la comunidad correspondiente.");
+            if (destinationTrip is null) return BadRequest("No se pudo encontrar el destino de viaje correspondiente.");
 
-            var activity = await activityQueryServices.Handle(new GetActivityByIdQuery(promotion.DestinationTrip.ActivityId));
-            if (activity is null) return BadRequest("No se pudo encontrar el taller correspondiente.");
+            var activity = await externalIFeedbackService.FetchActivityById(promotion.DestinationTrip.ActivityId);
+            if (activity is null) return BadRequest("No se pudo encontrar la actividad correspondiente.");
 
          
             promotion.DestinationTrip = destinationTrip;
