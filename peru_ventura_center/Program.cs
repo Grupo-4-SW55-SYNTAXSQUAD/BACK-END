@@ -10,6 +10,13 @@ using peru_ventura_center.Feedback.Domain.Services;
 using peru_ventura_center.Feedback.Infraestructure.Persistence.EFC.Repositories;
 using peru_ventura_center.Feedback.Infrastructure.Persistence.ACL;
 using peru_ventura_center.Feedback.Infrastructure.Persistence.ACL.Services;
+using peru_ventura_center.payments.Application.Internal.CommandServices;
+using peru_ventura_center.payments.Application.Internal.QueryServices;
+using peru_ventura_center.Payments.Application.Internal.CommandServices;
+using peru_ventura_center.Payments.Application.Internal.QueryServices;
+using peru_ventura_center.Payments.Domain.Repositories;
+using peru_ventura_center.Payments.Domain.Services;
+using peru_ventura_center.Payments.Infrastructure.Persistence.EFC.Repositories;
 using peru_ventura_center.profiles.Domain.Repositories;
 using peru_ventura_center.profiles.Domain.Services;
 using peru_ventura_center.profiles.Infrastructure.Persistence.ACL;
@@ -144,6 +151,23 @@ builder.Services.AddScoped<ICategoryQueryService, CategoryQueryServices>();
 builder.Services.AddScoped<ExternalProfileService>();
 builder.Services.AddScoped<IDestinationTripRepository, DestinationTripRepository>();
 builder.Services.AddScoped<IDestinationTripQueryServices, DestinationTripQueryServices>();
+
+
+builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+builder.Services.AddScoped<IBookingCommandServices, BookingCommandService>();
+builder.Services.AddScoped<IBookingQueryServices, BookingQueryServices>();
+
+builder.Services.AddScoped<IBookingStateRepository, BookingStateRepository>();
+builder.Services.AddScoped<IBookingStateCommandService, BookingStateCommandService>();
+builder.Services.AddScoped<IBookingStateQueryService, BookingStateQueryService>();
+
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<IPaymentCommandServices, PaymentCommandServices>();
+builder.Services.AddScoped<IPaymentQueryServices, PaymentQueryServices>();
+builder.Services.AddScoped<IPaymentStateRepository, PaymentStateRepository>();
+builder.Services.AddScoped<IPaymentStateQueryServices, PaymentStateQueryServices>();
+builder.Services.AddScoped<IPaymentTypeRepository, PaymentTypeRepository>();
+builder.Services.AddScoped<IPaymentTypeQueryServices, PaymentTypeQueryServices>();
 
 var app = builder.Build();
 
