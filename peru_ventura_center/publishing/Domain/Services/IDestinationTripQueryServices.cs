@@ -5,7 +5,7 @@ namespace peru_ventura_center.Publishing.Domain.Services
 {
     public interface IDestinationTripQueryServices
     {
-        Task<DestinationTrip?> Handle(GetDestinationTripById query);
+        Task<DestinationTrip?> Handle(GetDestinationTripByIdQuery query);
         Task<IEnumerable<DestinationTrip>> Handle(GetAllDestinationTripsQuery query);
     }
 }

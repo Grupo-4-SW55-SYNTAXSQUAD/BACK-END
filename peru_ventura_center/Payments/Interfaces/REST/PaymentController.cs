@@ -3,12 +3,9 @@ using peru_ventura_center.Payments.Domain.Services;
 using peru_ventura_center.Payments.Interfaces.REST.Resources;
 using peru_ventura_center.Payments.Domain.Model.Queries;
 using peru_ventura_center.Payments.Interfaces.REST.Transformers;
-using peru_ventura_center.Payments.Domain.Model.Aggregates;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Mime;
-using peru_ventura_center.Payments.Domain.Model.Commands;
-using peru_ventura_center.Publishing.Domain.Services;
-using peru_ventura_center.Publishing.Interfaces.REST.Transformers;
+
 
 
 namespace peru_ventura_center.Payments.Interfaces.REST
@@ -26,6 +23,8 @@ namespace peru_ventura_center.Payments.Interfaces.REST
             OperationId = "GetAllPayments"
         )]
         [SwaggerResponse(200, "Payments found")]
+        [SwaggerResponse(404, "No Payments found")]
+        [SwaggerResponse(500, "Internal Server Error")]
         public async Task<IActionResult> GetAllPayments()
         {
             var payments = await paymentQueryServices.Handle(new GetAllPaymentQuery());
@@ -40,6 +39,8 @@ namespace peru_ventura_center.Payments.Interfaces.REST
             OperationId = "GetPaymentById"
         )]
         [SwaggerResponse(200, "The payment was found")]
+        [SwaggerResponse(404, "The payment was not found")]
+        [SwaggerResponse(500, "Internal Server Error")]
         public async Task<IActionResult> GetPaymentById([FromRoute] int PaymentId)
         {
             var payment = await paymentQueryServices.Handle(new GetPaymentByIdQuery(PaymentId));
@@ -55,6 +56,8 @@ namespace peru_ventura_center.Payments.Interfaces.REST
             OperationId = "CreatePayment"
         )]
         [SwaggerResponse(201, "The payment was created")]
+        [SwaggerResponse(400, "The payment was not created")]
+        [SwaggerResponse(500, "Internal Server Error")]
         public async Task<IActionResult> CreatePayment([FromBody] CreatePaymentResource createPaymentResource)
         {
             var createPaymentCommand= CreatePaymentCommandFromResourceAssembler. ToCommandFromResource(createPaymentResource);

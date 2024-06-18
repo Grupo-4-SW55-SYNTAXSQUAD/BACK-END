@@ -7,7 +7,7 @@ namespace peru_ventura_center.Feedback.Application.Internal.QueryServices
 {
     public class ReviewQueryServices(IReviewRepository reviewRepository) : IReviewQueryServices
     {
-        public async Task<Review?> Handle(GetReviewById query)
+        public async Task<Review?> Handle(GetReviewByIdQuery query)
         {
             return await reviewRepository.FindByIdAsync(query.ReviewId);
         }

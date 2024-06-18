@@ -5,7 +5,7 @@ namespace peru_ventura_center.Feedback.Domain.Services
 {
     public interface ICategoryQueryService
     {
-        Task<Category?> Handle(GetCategoryById query);
+        Task<Category?> Handle(GetCategoryByIdQuery query);
         Task<IEnumerable<Category>> Handle(GetAllCategoriesQuery query);
     }
 }

@@ -7,7 +7,7 @@ namespace peru_ventura_center.Publishing.Application.Internal.QueryServices
 {
     public class DestinationTripQueryServices(IDestinationTripRepository destinationTripRepository) : IDestinationTripQueryServices
     {
-        public async Task<DestinationTrip?> Handle(GetDestinationTripById query)
+        public async Task<DestinationTrip?> Handle(GetDestinationTripByIdQuery query)
         {
             return await destinationTripRepository.FindByIdAsync(query.DestinationTripId);
         }

@@ -11,6 +11,13 @@ namespace peru_ventura_center.Payments.Domain.Model.Aggregates
         public int PaymentStateId { get; set; }
         public int PaymentTypeId { get; set; }
 
+        public Payment()
+        {
+            Amount = 0;
+            PaymentDate = DateTime.Now;
+            PaymentTypeId = 0;
+            PaymentStateId = 0;
+        }
         public Payment(float Amount, DateTime PaymentDate, int PaymentTypeId, int PaymentStateId)
         {
             this.Amount = Amount;

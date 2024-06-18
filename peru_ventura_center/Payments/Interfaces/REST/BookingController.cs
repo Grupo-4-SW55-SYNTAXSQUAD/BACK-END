@@ -5,11 +5,7 @@ using peru_ventura_center.Payments.Interfaces.REST.Transformers;
 using peru_ventura_center.Payments.Interfaces.REST.Resources;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Mime;
-using peru_ventura_center.Feedback.Application.Internal.QueryServices;
-using peru_ventura_center.Feedback.Domain.Model.Queries;
-using peru_ventura_center.Feedback.Interfaces.REST.Transformers;
-using peru_ventura_center.Publishing.Application.Internal.OutboundServices.ACL;
-using peru_ventura_center.Publishing.Domain.Model.Entities;
+using peru_ventura_center.profiles.Application.Internal.OutboundServices.ACL;
 
 namespace peru_ventura_center.Payments.Interfaces.REST
 {
@@ -25,6 +21,8 @@ namespace peru_ventura_center.Payments.Interfaces.REST
             OperationId = "GetAllBookings"
         )]
         [SwaggerResponse(200, "Bookings found")]
+        [SwaggerResponse(404, "No Bookings found")]
+        [SwaggerResponse(500, "Internal Server Error")]
         public async Task<IActionResult> GetAllBookings()
         {
             var bookings = await bookingQueryServices.Handle(new GetAllBookingsQuery());
@@ -39,6 +37,8 @@ namespace peru_ventura_center.Payments.Interfaces.REST
             OperationId = "GetBookingById"
         )]
         [SwaggerResponse(200, "The Booking was found")]
+        [SwaggerResponse(404, "The Booking was not found")]
+        [SwaggerResponse(500, "Internal Server Error")]
         public async Task<IActionResult> GetBookingById([FromRoute] int BookingId)
         {
             var booking = await bookingQueryServices.Handle(new GetBookingByIdQuery(BookingId));
@@ -54,6 +54,8 @@ namespace peru_ventura_center.Payments.Interfaces.REST
             OperationId = "CreateBooking"
         )]
         [SwaggerResponse(201, "The Booking was created")]
+        [SwaggerResponse(400, "The Booking was not created")]
+        [SwaggerResponse(500, "Internal Server Error")]
         public async Task<IActionResult> CreateBooking([FromBody] CreateBookingResource createBookingResource)
         {
             var createBookingCommand = CreateBookingCommandFromResourceAssembler.ToCommandFromResource(createBookingResource);

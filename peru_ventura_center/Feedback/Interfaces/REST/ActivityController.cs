@@ -58,7 +58,7 @@ namespace peru_ventura_center.Feedback.Interfaces.REST
 
 
             // Obtener la entidad Community correspondiente al id proporcionado
-            var category = await categoryQueryService.Handle(new GetCategoryById(activity.CategoryId));
+            var category = await categoryQueryService.Handle(new GetCategoryByIdQuery(activity.CategoryId));
             if (category is null) return BadRequest("No se pudo encontrar la categoria correspondiente.");
 
 

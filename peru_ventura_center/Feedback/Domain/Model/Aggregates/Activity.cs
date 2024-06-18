@@ -23,5 +23,14 @@
             this.CategoryId = CategoryId;
         }
 
+        public Activity()
+        {
+            Name = string.Empty;
+            Description = string.Empty;
+            Schedule = string.Empty;
+            MaxPeople = 0;
+            Cost = 0;
+            Category = new Category();
+        }
     }
 }

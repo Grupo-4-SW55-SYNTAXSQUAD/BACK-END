@@ -7,7 +7,7 @@ namespace peru_ventura_center.Feedback.Application.Internal.QueryServices
 {
     public class CategoryQueryServices(ICategoryRepository categoryRepository) : ICategoryQueryService
     {
-        public async Task<Category?> Handle(GetCategoryById query)
+        public async Task<Category?> Handle(GetCategoryByIdQuery query)
         {
             return await categoryRepository.FindByIdAsync(query.CategoryId);
         }

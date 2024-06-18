@@ -19,6 +19,8 @@ namespace peru_ventura_center.Payments.Interfaces.REST
         OperationId = "GetAllPaymentState"
         )]
         [SwaggerResponse(200, "PaymentState found")]
+        [SwaggerResponse(404, "No PaymentState found")]
+        [SwaggerResponse(500, "Internal Server Error")]
         public async Task<IActionResult> GetAllPaymentState()
         {
             var paymentState= await paymentStateQueryServices.Handle(new GetAllPaymentStateQuery());//TODO: Implement GetAllActivitiesQuery
@@ -33,6 +35,8 @@ namespace peru_ventura_center.Payments.Interfaces.REST
             OperationId = "GetPaymentStateById"
         )]
         [SwaggerResponse(200, "The paymentState was found")]
+        [SwaggerResponse(404, "The paymentState was not found")]
+        [SwaggerResponse(500, "Internal Server Error")]
         public async Task<IActionResult> GetPaymentStateByIdQuery([FromRoute] int PaymentStateId)
         {
             var paymentState = await paymentStateQueryServices.Handle(new GetPaymentStateByIdQuery(PaymentStateId));

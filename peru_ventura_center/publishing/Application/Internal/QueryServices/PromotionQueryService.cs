@@ -7,7 +7,7 @@ namespace peru_ventura_center.publishing.Application.Internal.QueryServices
 {
     public class PromotionQueryService(IPromotionRepository promotionRepository):IPromotionQueryService
     {
-        public async Task<Promotion?> Handle(GetPromotionByIdQuery query)
+        public async Task<Promotion?> Handle(GetPromotionByIdQueryQuery query)
         {
             return await promotionRepository.FindByIdAsync(query.PromotionId);
         }

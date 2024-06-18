@@ -35,7 +35,7 @@ namespace peru_ventura_center.Feedback.Interfaces.REST
         [SwaggerResponse(200, "The category was found")]
         public async Task<IActionResult> GetCategoryById([FromRoute] int CategoryId)
         {
-            var category = await categoryQueryService.Handle(new GetCategoryById(CategoryId));
+            var category = await categoryQueryService.Handle(new GetCategoryByIdQuery(CategoryId));
             if (category is null) return NotFound();
             var resource = CategoryResourceFromEntityAssembler.ToResourceFromEntity(category);
             return Ok(resource);

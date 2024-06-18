@@ -9,6 +9,12 @@ namespace peru_ventura_center.Feedback.Domain.Model.Aggregates
         public Activity Activity { get; set; }
         public int ActivityId { get; set; }
 
+        public Review()
+        {
+            Score = 0;
+            Comment = string.Empty;
+            Activity = new Activity();
+        }
         public Review(int Score, string Comment, int ActivityId)
         {
             this.Score = Score;

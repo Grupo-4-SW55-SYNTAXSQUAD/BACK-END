@@ -42,7 +42,7 @@ namespace peru_ventura_center.publishing.Interfaces.REST
         [SwaggerResponse(200, "The promotion was found")]
         public async Task<IActionResult> GetPromotionById([FromRoute] int PromotionId)
         {
-            var prmotion = await promotionQueryService.Handle(new GetPromotionByIdQuery(PromotionId));
+            var prmotion = await promotionQueryService.Handle(new GetPromotionByIdQueryQuery(PromotionId));
             if (prmotion is null) return NotFound();
             var resource = PromotionResourceFromEntityAssembler.ToResourceFromEntity(prmotion);
             return Ok(resource);
@@ -63,7 +63,7 @@ namespace peru_ventura_center.publishing.Interfaces.REST
             if (promotion is null) return BadRequest();
 
 
-            var destinationTrip = await destinationTripQueryServices.Handle(new GetDestinationTripById(promotion.DestinationTripId));
+            var destinationTrip = await destinationTripQueryServices.Handle(new GetDestinationTripByIdQuery(promotion.DestinationTripId));
             if (destinationTrip is null) return BadRequest("No se pudo encontrar el destino de viaje correspondiente.");
 
             var activity = await externalIFeedbackService.FetchActivityById(promotion.DestinationTrip.ActivityId);

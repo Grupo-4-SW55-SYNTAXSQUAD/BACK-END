@@ -17,6 +17,12 @@ namespace peru_ventura_center.Payments.Domain.Model.Aggregates
             this.ActivityId = ActivityId;
             this.BookingStateId = BookingStateId;
         }
+        public Booking()
+        {
+            BookingDate = DateTime.Now;
+            Activity = new Activity();
+            BookingState = new BookingState();
+        }
     }
 
 }

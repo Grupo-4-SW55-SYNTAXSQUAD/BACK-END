@@ -37,7 +37,7 @@ namespace peru_ventura_center.Feedback.Interfaces.REST
         [SwaggerResponse(200, "The review was found")]
         public async Task<IActionResult> GetReviewById([FromRoute] int ReviewId)
         {
-            var review = await reviewQueryServices.Handle(new GetReviewById(ReviewId));
+            var review = await reviewQueryServices.Handle(new GetReviewByIdQuery(ReviewId));
             if (review is null) return NotFound();
             var resource = ReviewResourceFromEntityAssembler.ToResourceFromEntity(review);
             return Ok(resource);

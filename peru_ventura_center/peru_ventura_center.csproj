@@ -30,7 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Feedback\Domain\Model\Entities\" />
-    <Folder Include="profiles\Domain\Model\Entities\" />
+    <Folder Include="Profiles\Domain\Model\Aggregates\" />
     <Folder Include="Publishing\Domain\Model\Aggregates\" />
   </ItemGroup>
 

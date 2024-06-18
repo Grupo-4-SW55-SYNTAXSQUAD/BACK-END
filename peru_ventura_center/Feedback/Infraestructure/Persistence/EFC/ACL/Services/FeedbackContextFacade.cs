@@ -5,7 +5,7 @@ using peru_ventura_center.Feedback.Domain.Services;
 
 namespace peru_ventura_center.Feedback.Infrastructure.Persistence.ACL.Services
 {
-    public class FeedbackContextFacade(IActivityCommandServices activityCommandServices, IActivityQueryServices activityQueryServices) : IFeedBackContextFacade
+    public class FeedbackContextFacade(IActivityCommandServices activityCommandServices, IActivityQueryServices activityQueryServices,IReviewCommandServices reviewCommandServices, IReviewQueryServices reviewQueryServices) : IFeedBackContextFacade
     {
         public async Task<int> CreateActivity(string Name, string Description, string Schedule, int MaxPeople, decimal Cost, int CategoryId)
         {
@@ -21,6 +21,19 @@ namespace peru_ventura_center.Feedback.Infrastructure.Persistence.ACL.Services
             var getActivityById= new GetActivityByIdQuery(ActivityId);
             var activity = await activityQueryServices.Handle(getActivityById);
             return activity;
+        }
+ 
+        public async Task<Review?> FetchReviewById(int ReviewId)
+        {
+            var getReviewById = new GetReviewByIdQuery(ReviewId);
+            var review = await reviewQueryServices.Handle(getReviewById);
+            return review;
+        }
+        public async Task<int> CreateReview(int Score, string Comment, int ActivityId)
+        {
+            var createReviewCommand = new CreateReviewCommand(Score, Comment, ActivityId);
+            var review = await reviewCommandServices.Handle(createReviewCommand);
+            return review?.ReviewId ?? 0;
         }
     }
 }

@@ -5,7 +5,7 @@ namespace peru_ventura_center.publishing.Domain.Services
 {
     public interface IPromotionQueryService
     {
-        Task<Promotion?> Handle(GetPromotionByIdQuery query);
+        Task<Promotion?> Handle(GetPromotionByIdQueryQuery query);
         Task<IEnumerable<Promotion>> Handle(GetAllPromotionsQuery query);
     }
 }

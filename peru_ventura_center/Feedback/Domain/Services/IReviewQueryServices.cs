@@ -5,7 +5,7 @@ namespace peru_ventura_center.Feedback.Domain.Services
 {
     public interface IReviewQueryServices
     {
-        Task<Review?> Handle(GetReviewById query);
+        Task<Review?> Handle(GetReviewByIdQuery query);
         Task<IEnumerable<Review>> Handle(GetAllReviewsQuery query);
     }
 }

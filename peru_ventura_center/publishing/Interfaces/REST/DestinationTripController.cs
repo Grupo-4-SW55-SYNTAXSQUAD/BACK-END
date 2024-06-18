@@ -19,6 +19,8 @@ namespace peru_ventura_center.Publishing.Interfaces.REST
             OperationId = "GetAllDestinationTrips"
         )]
         [SwaggerResponse(200, "Destination Trips found")]
+        [SwaggerResponse(404, "No Destination Trips found")]
+        [SwaggerResponse(500, "Internal Server Error")]
         public async Task<IActionResult> GetAllDestinationTtips()
         {
             var destinationTrip = await destinationTripQueryServices.Handle(new GetAllDestinationTripsQuery());//TODO: Implement GetAllActivitiesQuery
@@ -33,9 +35,11 @@ namespace peru_ventura_center.Publishing.Interfaces.REST
             OperationId = "GetDestinationTripById"
         )]
         [SwaggerResponse(200, "The destination trip was found")]
+        [SwaggerResponse(404, "The destination trip was not found")]
+        [SwaggerResponse(500, "Internal Server Error")]
         public async Task<IActionResult> GetDestinationTripById([FromRoute] int DestinationTripId)
         {
-            var destinationTrip = await destinationTripQueryServices.Handle(new GetDestinationTripById(DestinationTripId));
+            var destinationTrip = await destinationTripQueryServices.Handle(new GetDestinationTripByIdQuery(DestinationTripId));
             if (destinationTrip is null) return NotFound();
             var resource = DestinationTripResourceFromEntityAssembler.ToResourceFromEntity(destinationTrip);
             return Ok(resource);

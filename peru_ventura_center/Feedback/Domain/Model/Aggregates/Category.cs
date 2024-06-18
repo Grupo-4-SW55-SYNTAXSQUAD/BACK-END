@@ -10,5 +10,9 @@
         {
             this.TypeName = TypeName;
         }
+        public Category()
+        {
+            TypeName = string.Empty;
+        }
     }
 }

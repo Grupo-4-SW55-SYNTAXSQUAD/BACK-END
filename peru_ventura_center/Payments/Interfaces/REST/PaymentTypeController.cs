@@ -19,7 +19,11 @@ namespace peru_ventura_center.Payments.Interfaces.REST
             OperationId = "GetAllPaymentType"
             )]
             [SwaggerResponse(200, "PaymentType found")]
-            public async Task<IActionResult> GetAllPaymentType()
+            [SwaggerResponse(404, "No PaymentType found")]
+            [SwaggerResponse(500, "Internal Server Error")]
+
+
+        public async Task<IActionResult> GetAllPaymentType()
             {
                 var paymenType = await paymentTypeQueryServices.Handle(new GetAllPaymentTypeQuery());//TODO: Implement GetAllActivitiesQuery
                 var resource = paymenType.Select(PaymentTypeResourceFromEntityAssembler.ToResourceFromEntity);//
