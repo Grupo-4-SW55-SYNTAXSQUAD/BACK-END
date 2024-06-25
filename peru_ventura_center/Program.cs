@@ -46,6 +46,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(options => options.Conventions.Add(new KebabCaseRouteNamingConvention()));
 
+// Add CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 // Add Database Connection
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -200,6 +210,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+// Use CORS
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 
