@@ -13,7 +13,8 @@ namespace peru_ventura_center.Payments.Interfaces.REST.Transformers
                     payment.Amount,
                     payment.PaymentDate,
                     PaymentTypeResourceFromEntityAssembler.ToResourceFromEntity(payment.PaymentType),
-                    PaymentStateResourceFromEntityAssembler.ToResourceFromEntity(payment.PaymentState)
+                    PaymentStateResourceFromEntityAssembler.ToResourceFromEntity(payment.PaymentState),
+                    BookingResourceFromEntityAssembler.ToResourceFromEntity(payment.Booking)
 
                 );
         }

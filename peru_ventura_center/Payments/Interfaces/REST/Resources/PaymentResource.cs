@@ -5,6 +5,7 @@
         float Amount,
         DateTime PaymentDate,
         PaymentTypeResource PaymentType,
-        PaymentStateResource PaymentState
+        PaymentStateResource PaymentState,
+        BookingResource Booking
     );
 }

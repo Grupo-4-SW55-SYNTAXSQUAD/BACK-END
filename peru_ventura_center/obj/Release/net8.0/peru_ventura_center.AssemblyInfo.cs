@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("peru_ventura_center")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d3f742cdbc00ee8d380f0da57cb41c45f22e29a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+185b50fe977782623e6daaf7119f143129bb71eb")]
 [assembly: System.Reflection.AssemblyProductAttribute("peru_ventura_center")]
 [assembly: System.Reflection.AssemblyTitleAttribute("peru_ventura_center")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

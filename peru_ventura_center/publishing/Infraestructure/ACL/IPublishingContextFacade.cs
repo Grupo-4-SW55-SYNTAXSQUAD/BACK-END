@@ -8,6 +8,6 @@ namespace peru_ventura_center.Publishing.Infrastructure.Persistence.ACL
         string Name,
         string Description,
         string Offer);
-        Task<Promotion?> FetchPromotionById(int PromotionId);
+        Task<Promotion?> FetchPromotionById(int? PromotionId);
     }
 }

@@ -5,6 +5,9 @@ using peru_ventura_center.profiles.Domain.Services;
 using peru_ventura_center.profiles.Interfaces.REST.Resources;
 using System.Net.Mime;
 using Swashbuckle.AspNetCore.Annotations;
+using LearningCenterPlatform.Profiles.Application.Internal.CommandServices;
+using peru_ventura_center.Profiles.Interfaces.REST.Resources;
+using peru_ventura_center.Profiles.Interfaces.REST.Transformers;
 
 namespace LearningCenterPlatform.Profiles.Interfaces.REST
 {
@@ -19,7 +22,7 @@ namespace LearningCenterPlatform.Profiles.Interfaces.REST
            Description = "Creates a User with the provided data",
            OperationId = "CreateUser"
        )]
-        [SwaggerResponse(201, "The request was created", typeof(UserResource))]
+        [SwaggerResponse(201, "The request was created")]
         [SwaggerResponse(400, "Invalid data provided for creating the user")]
         [SwaggerResponse(500, "An error occurred while creating the user")]
         public async Task<IActionResult> CreateUser(CreateUserResource resource)
@@ -29,7 +32,7 @@ namespace LearningCenterPlatform.Profiles.Interfaces.REST
                 var profile = await profileCommandService.Handle(CreateUserCommandFromResourceAssembler.ToCommandFromResource(resource));
                 if (profile is null) { return BadRequest(new { Error = "Unable to create the user." }); }
                 var profileResource = UserResourceFromEntityAssembler.ToResourceFromEntity(profile);
-                return CreatedAtAction(nameof(GetUserById), new { profileId = profileResource.UserId }, profileResource);
+                return CreatedAtAction(nameof(CreateUser), new { profileId = profileResource.UserId }, profileResource);
             }
             catch (Exception ex)
             {
@@ -69,6 +72,61 @@ namespace LearningCenterPlatform.Profiles.Interfaces.REST
             if(profile is null) { return NotFound(); }
             var profileResource = UserResourceFromEntityAssembler.ToResourceFromEntity(profile);
             return Ok(profileResource);
+        }
+        [HttpDelete("{UserId:int}")]
+        [SwaggerOperation(
+            Summary = "Deletes a User by id",
+            Description = "Deletes a user for a given identifier",
+            OperationId = "DeleteUser"
+        )]
+        [SwaggerResponse(204, "User deleted")]
+        [SwaggerResponse(404, "The user was not found")]
+        [SwaggerResponse(500, "An error occurred while processing the request")]
+        public async Task<IActionResult> DeleteUser(int UserId)
+        {
+            try
+            {
+                await profileCommandService.DeleteUser(UserId);
+                return NoContent();
+            }
+            catch (ArgumentException ex)
+            {
+                return NotFound(new { Error = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Error = ex.Message });
+            }
+        }
+        [HttpPatch("{userId:int}")]
+        [SwaggerOperation(
+           Summary = "Update User attributes",
+           Description = "Partially updates attributes of a User identified by userId",
+           OperationId = "PatchUser"
+       )]
+        [SwaggerResponse(204, "User updated successfully")]
+        [SwaggerResponse(400, "Invalid data provided for updating the user")]
+        [SwaggerResponse(404, "The user was not found")]
+        [SwaggerResponse(500, "An error occurred while processing the request")]
+        public async Task<IActionResult> PatchUser(int userId, PatchUserResource resource)
+        {
+            try
+            {
+                await profileCommandService.PatchUser(userId, user =>
+                {
+                    PatchUserCommandFromResourceAssembler.ApplyPatch(user, resource);
+                });
+
+                return NoContent();
+            }
+            catch (ArgumentException ex)
+            {
+                return NotFound(new { Error = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Error = ex.Message });
+            }
         }
     }
 }

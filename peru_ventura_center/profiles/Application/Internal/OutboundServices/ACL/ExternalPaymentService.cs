@@ -6,7 +6,7 @@ namespace peru_ventura_center.profiles.Application.Internal.OutboundServices.ACL
 {
     public class ExternalPaymentService(IPaymentContextFacade paymentContextFacade)
     {
-        public async Task<Booking?> FetchBookingById(int booking_id)
+        public async Task<Booking?> FetchBookingById(int? booking_id)
         {
             var booking = await paymentContextFacade.FetchBookingById(booking_id);
             if (booking == null) return await Task.FromResult<Booking?>(null);

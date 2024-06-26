@@ -9,11 +9,16 @@ namespace peru_ventura_center.profiles.Domain.Model.Entities
         public User User { get; set; }
         public int UserId { get; set; }
         public Promotion Promotion { get; set; }
-        public int PromotionId { get; set; }
+        public int? PromotionId { get; set; }
 
         public Owner() { 
             OwnerId = 0;
             UserId = 0;
+        }
+        public Owner(int UserId)
+        {
+            this.UserId = UserId;
+            PromotionId = null;
         }
         public Owner(int UserId, int PromotionId)
         {
@@ -22,8 +27,8 @@ namespace peru_ventura_center.profiles.Domain.Model.Entities
         }
         public Owner(CreateOwnerCommand command)
         {
-            this.UserId= command.UserId;
-            this.PromotionId= command.PromotionId;
+            UserId= command.UserId;
+            PromotionId= command.PromotionId;
         }
     }
 }

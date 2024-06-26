@@ -6,6 +6,7 @@ namespace peru_ventura_center.profiles.Domain.Repositories
     public interface IUserRepository:IBaseRepository<User>
     {
         Task<User?> FindProfileByEmailAsync(string email);
-
+        Task DeleteProfileAsync(User user);
+        Task UpdateProfileAsync(User user);
     }
 }

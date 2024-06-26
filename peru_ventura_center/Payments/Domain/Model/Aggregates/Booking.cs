@@ -11,6 +11,9 @@ namespace peru_ventura_center.Payments.Domain.Model.Aggregates
         public BookingState BookingState { get; set; }
         public Activity Activity { get; set; }
 
+
+
+
         public Booking(DateTime BookingDate, int ActivityId, int BookingStateId)
         {
             this.BookingDate = BookingDate;

@@ -8,22 +8,22 @@ namespace peru_ventura_center.Payments.Domain.Model.Aggregates
         public DateTime PaymentDate {  get; set; }
         public PaymentType PaymentType { get; set; }
         public PaymentState PaymentState { get; set; }
+        public Booking Booking { get; set; }
         public int PaymentStateId { get; set; }
         public int PaymentTypeId { get; set; }
-
+        public int BookingId { get; set; }
         public Payment()
         {
             Amount = 0;
             PaymentDate = DateTime.Now;
-            PaymentTypeId = 0;
-            PaymentStateId = 0;
         }
-        public Payment(float Amount, DateTime PaymentDate, int PaymentTypeId, int PaymentStateId)
+        public Payment(float Amount, DateTime PaymentDate, int PaymentTypeId, int PaymentStateId, int BookingId)
         {
             this.Amount = Amount;
             this.PaymentDate = PaymentDate;
             this.PaymentTypeId = PaymentTypeId;
             this.PaymentStateId = PaymentStateId;
+            this.BookingId = BookingId;
         }
 
     }

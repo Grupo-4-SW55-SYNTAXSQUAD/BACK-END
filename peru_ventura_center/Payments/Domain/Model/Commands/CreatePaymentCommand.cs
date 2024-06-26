@@ -8,6 +8,7 @@ namespace peru_ventura_center.Payments.Domain.Model.Commands
         float Amount,
         DateTime PaymentDate,
         int  PaymentTypeId,
-        int  PaymentStateId
+        int  PaymentStateId,
+        int  BookingId
     );
 }

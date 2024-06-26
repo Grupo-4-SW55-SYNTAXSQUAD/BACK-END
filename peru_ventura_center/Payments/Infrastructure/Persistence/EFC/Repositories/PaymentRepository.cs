@@ -11,10 +11,12 @@ namespace peru_ventura_center.Payments.Infrastructure.Persistence.EFC.Repositori
         public new async Task<Payment?> FindByIdAsync(int PaymentId) => await Context.Set<Payment>()
             .Include(a => a.PaymentState)
             .Include(a=>a.PaymentType)
+            .Include(a=>a.Booking)
             .Where(a=>a.PaymentId == PaymentId).FirstOrDefaultAsync();
         public new async Task<IEnumerable<Payment>> ListAsync()=> await Context.Set<Payment>()
             .Include(a => a.PaymentState)
             .Include(a => a.PaymentType)
+            .Include(a => a.Booking)
             .ToListAsync();
     }
 

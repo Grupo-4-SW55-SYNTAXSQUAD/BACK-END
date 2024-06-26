@@ -2,6 +2,6 @@
 
 namespace peru_ventura_center.profiles.Interfaces.REST.Resources
 {
-    public record OwnerResource(int OwnerId, UserResource User, PromotionResource Promotion);
+    public record OwnerResource(int OwnerId, UserResource User, PromotionResource? Promotion);
 
 }

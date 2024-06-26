@@ -11,9 +11,8 @@ namespace peru_ventura_center.profiles.Interfaces.REST.Transformers
         {
             return new TouristResource(entity.TouristId,
                 UserResourceFromEntityAssembler.ToResourceFromEntity(entity.User),
-                ReviewResourceFromEntityAssembler.ToResourceFromEntity(entity.Review),
-                BookingResourceFromEntityAssembler.ToResourceFromEntity(entity.Booking));
-          
+                entity.Review != null ? ReviewResourceFromEntityAssembler.ToResourceFromEntity(entity.Review) : null,
+                entity.Booking != null ? BookingResourceFromEntityAssembler.ToResourceFromEntity(entity.Booking) : null);
         }
     }
 }

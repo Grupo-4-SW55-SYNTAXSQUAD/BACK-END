@@ -7,7 +7,7 @@ namespace peru_ventura_center.profiles.Application.Internal.OutboundServices.ACL
     public class ExternalPublishingService(IPublishingContextFacade promotionContextFacade)
     {
 
-        public async Task<Promotion?> FetchPromotionById(int PromotionId)
+        public async Task<Promotion?> FetchPromotionById(int? PromotionId)
         {
             var promotion = await promotionContextFacade.FetchPromotionById(PromotionId);
             if (promotion == null) return await Task.FromResult<Promotion?>(null);

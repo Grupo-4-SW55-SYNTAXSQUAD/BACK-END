@@ -18,5 +18,30 @@ namespace LearningCenterPlatform.Profiles.Infraestructure.Persistence.EFC.Reposi
             return Context.Set<User>().Where(p => p.UserId == userId).FirstOrDefaultAsync();
         }
         public new async Task<IEnumerable<User>> ListAsync() => await Context.Set<User>().ToListAsync();
+        public async Task DeleteProfileAsync(User user)
+        {
+            Context.Entry(user).State = EntityState.Deleted;
+
+            // Delete associated Owner if exists
+            var owner = await Context.Set<Owner>().FirstOrDefaultAsync(o => o.UserId == user.UserId);
+            if (owner != null)
+            {
+                Context.Set<Owner>().Remove(owner);
+            }
+
+            // Delete associated Tourist if exists
+            var tourist = await Context.Set<Tourist>().FirstOrDefaultAsync(t => t.UserId == user.UserId);
+            if (tourist != null)
+            {
+                Context.Set<Tourist>().Remove(tourist);
+            }
+
+            await Context.SaveChangesAsync();
+        }
+        public async Task UpdateProfileAsync(User user)
+        {
+            Context.Entry(user).State = EntityState.Modified;
+            await Context.SaveChangesAsync();
+        }
     }
 }

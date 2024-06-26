@@ -12,14 +12,20 @@ namespace peru_ventura_center.profiles.Domain.Model.Entities
         public Booking Booking{ get; set; }
 
         public int UserId { get; set; }
-        public int ReviewId { get; set; }
-        public int BookingId { get; set; }
+        public int? ReviewId { get; set; }
+        public int? BookingId { get; set; }
 
         public Tourist()
         {
             UserId = 0;
-            ReviewId = 0;
-            BookingId = 0;
+            ReviewId = null;
+            BookingId = null;
+        }
+        public Tourist(int UserId)
+        {
+            this.UserId = UserId;
+            ReviewId = null;
+            BookingId = null;
         }
         public Tourist(int UserId, int ReviewId, int BookingId)
         {

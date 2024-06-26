@@ -19,7 +19,7 @@ namespace peru_ventura_center.profiles.Application.Internal.OutboundServices.ACL
             return new ActivityId(activityId);
         }
 
-        public async Task<Review?> FetchReviewById(int ReviewId)
+        public async Task<Review?> FetchReviewById(int? ReviewId)
         {
             var review = await feedBackContextFacade.FetchReviewById(ReviewId);
             if (review == null) return await Task.FromResult<Review?>(null);

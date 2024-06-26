@@ -10,7 +10,7 @@ namespace peru_ventura_center.Payments.Application.Internal.CommandServices
     {
             public async Task<Payment?> Handle(CreatePaymentCommand command)
             {
-                var payment = new Payment(command.Amount, command.PaymentDate, command.PaymentTypeId, command.PaymentStateId);
+                var payment = new Payment(command.Amount, command.PaymentDate, command.PaymentTypeId, command.PaymentStateId,command.BookingId);
                 await paymentRepository.AddAsync(payment);
                 await unitOfWork.CompleteAsync();
                 return payment;

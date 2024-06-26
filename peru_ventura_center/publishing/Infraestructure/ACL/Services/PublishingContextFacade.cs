@@ -24,5 +24,10 @@ namespace peru_ventura_center.publishing.Infrastructure.Persistence.ACL.Services
             var promotion = await promotionQueryService.Handle(getPromotionByIdQuery);
             return promotion;
         }
+
+        public Task<Promotion?> FetchPromotionById(int? PromotionId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

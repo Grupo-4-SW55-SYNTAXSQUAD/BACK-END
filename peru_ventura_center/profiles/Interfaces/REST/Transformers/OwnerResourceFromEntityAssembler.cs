@@ -8,9 +8,12 @@ namespace peru_ventura_center.profiles.Interfaces.REST.Transformers
     {
         public static OwnerResource ToResourceFromEntity(Owner entity)
         {
+                //entity.Review != null ? ReviewResourceFromEntityAssembler.ToResourceFromEntity(entity.Review) : null,
+            
             return new OwnerResource(entity.OwnerId,
                 UserResourceFromEntityAssembler.ToResourceFromEntity(entity.User),
-                PromotionResourceFromEntityAssembler.ToResourceFromEntity(entity.Promotion));
+                entity.Promotion!=null ? PromotionResourceFromEntityAssembler.ToResourceFromEntity(entity.Promotion):null
+                );
         }
     }
 }

@@ -35,5 +35,19 @@ namespace peru_ventura_center.profiles.Domain.Model.Entities
             phone = command.phone;
             userType = command.userType;
         }
+
+        public void Patch(string name = null, string email = null, string phone = null, string password=null)
+        {
+            if (name != null)
+                this.name = name;
+
+            if (email != null)
+                this.email = email;
+
+            if (phone != null)
+                this.phone = phone;
+            if (password != null)
+                this.password = password;
+        }
     }
 }

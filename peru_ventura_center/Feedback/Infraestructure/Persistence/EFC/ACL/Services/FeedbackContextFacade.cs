@@ -35,5 +35,10 @@ namespace peru_ventura_center.Feedback.Infrastructure.Persistence.ACL.Services
             var review = await reviewCommandServices.Handle(createReviewCommand);
             return review?.ReviewId ?? 0;
         }
+
+        public Task<Review?> FetchReviewById(int? ReviewId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
