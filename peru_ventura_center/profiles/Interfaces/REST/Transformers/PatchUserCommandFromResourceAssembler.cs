@@ -7,6 +7,7 @@ namespace peru_ventura_center.Profiles.Interfaces.REST.Transformers
     {
         public static void ApplyPatch(User user, PatchUserResource resource)
         {
+            //Patch
             user.Patch(resource.name, resource.email, resource.phone,resource.password);
         }
     }
