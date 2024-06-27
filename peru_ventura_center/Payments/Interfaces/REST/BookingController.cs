@@ -46,7 +46,7 @@ namespace peru_ventura_center.Payments.Interfaces.REST
             var resource = BookingResourceFromEntityAssembler.ToResourceFromEntity(booking);
             return Ok(resource);
         }
-
+        //
         [HttpPost]
         [SwaggerOperation(
             Summary = "Create Booking",
