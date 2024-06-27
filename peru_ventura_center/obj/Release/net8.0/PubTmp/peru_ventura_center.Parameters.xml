@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="peruventuraApi" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\obj\\Release\\net8\.0\\PubTmp\\Out\\$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\PROGRAMACION\\5TO\ CICLO\\APP_WEB\\backend-yo\\peru_ventura_center\\peru_ventura_center\\obj\\Release\\net8\.0\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>

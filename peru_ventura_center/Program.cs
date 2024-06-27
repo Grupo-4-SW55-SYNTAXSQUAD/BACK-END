@@ -40,6 +40,7 @@ using peru_ventura_center.Shared.Interfaces.ASP.Configuration;
 using peru_ventura_center.profiles.Infrastructure.Persistence.EFC.Repositories;
 using peru_ventura_center.profiles.Application.Internal.CommandServices;
 using peru_ventura_center.profiles.Application.Internal.QueryServices;
+using peru_ventura_center.Publishing.Application.Internal.OutboundServices.ACL;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -176,7 +177,6 @@ builder.Services.AddScoped<ExternalPublishingService>();
 builder.Services.AddScoped<IDestinationTripRepository, DestinationTripRepository>();
 builder.Services.AddScoped<IDestinationTripQueryServices, DestinationTripQueryServices>();
 
-
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 builder.Services.AddScoped<IBookingCommandServices, BookingCommandService>();
 builder.Services.AddScoped<IBookingQueryServices, BookingQueryServices>();
@@ -191,6 +191,7 @@ builder.Services.AddScoped<IPaymentStateRepository, PaymentStateRepository>();
 builder.Services.AddScoped<IPaymentStateQueryServices, PaymentStateQueryServices>();
 builder.Services.AddScoped<IPaymentTypeRepository, PaymentTypeRepository>();
 builder.Services.AddScoped<IPaymentTypeQueryServices, PaymentTypeQueryServices>();
+
 
 var app = builder.Build();
 

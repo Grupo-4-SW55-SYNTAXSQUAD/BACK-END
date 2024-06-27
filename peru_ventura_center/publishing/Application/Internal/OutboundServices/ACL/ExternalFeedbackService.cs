@@ -19,6 +19,29 @@ namespace peru_ventura_center.Publishing.Application.Internal.OutboundServices.A
             return new ActivityId(activityId);
         }
 
-    
+        public async Task<Review?> FetchReviewById(int ReviewId)
+        {
+            var review = await feedBackContextFacade.FetchReviewById(ReviewId);
+            if (review == null) return await Task.FromResult<Review?>(null);
+            return review;
+        }
+        public async Task<ReviewId?> CreateReview(int Score, string Comment, int ActivityId)
+        {
+            var reviewId = await feedBackContextFacade.CreateReview(Score, Comment, ActivityId);
+            if (reviewId == 0) return await Task.FromResult<ReviewId?>(null);
+            return new ReviewId(reviewId);
+        }
+
+        public async Task<Category?> FetchCategoryById(int CategoryId)
+        {
+            var category = await feedBackContextFacade.FetchCategoryById(CategoryId);
+            if (category == null) return await Task.FromResult<Category?>(null);
+            return category;
+        }
+
+        internal async Task<Review> FetchReviewById(int? reviewId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

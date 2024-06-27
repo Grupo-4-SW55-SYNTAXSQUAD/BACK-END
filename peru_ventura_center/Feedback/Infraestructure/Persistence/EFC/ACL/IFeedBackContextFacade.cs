@@ -11,5 +11,7 @@ namespace peru_ventura_center.Feedback.Infrastructure.Persistence.ACL
 
         Task<Review?> FetchReviewById(int? ReviewId);
         Task<int> CreateReview(int Score, string Comment, int ActivityId);
+
+        Task<Category?> FetchCategoryById(int CategoryId);
     }
 }

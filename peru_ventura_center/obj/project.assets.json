@@ -8193,19 +8193,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PAOLO\\.nuget\\packages\\": {}
+    "C:\\Users\\parra\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\peru_ventura_center.csproj",
+      "projectUniqueName": "D:\\PROGRAMACION\\5TO CICLO\\APP_WEB\\backend-yo\\peru_ventura_center\\peru_ventura_center\\peru_ventura_center.csproj",
       "projectName": "peru_ventura_center",
-      "projectPath": "D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\peru_ventura_center.csproj",
-      "packagesPath": "C:\\Users\\PAOLO\\.nuget\\packages\\",
-      "outputPath": "D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\obj\\",
+      "projectPath": "D:\\PROGRAMACION\\5TO CICLO\\APP_WEB\\backend-yo\\peru_ventura_center\\peru_ventura_center\\peru_ventura_center.csproj",
+      "packagesPath": "C:\\Users\\parra\\.nuget\\packages\\",
+      "outputPath": "D:\\PROGRAMACION\\5TO CICLO\\APP_WEB\\backend-yo\\peru_ventura_center\\peru_ventura_center\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PAOLO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\parra\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8213,7 +8213,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8289,7 +8288,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

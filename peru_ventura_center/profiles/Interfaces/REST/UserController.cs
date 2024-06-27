@@ -5,7 +5,6 @@ using peru_ventura_center.profiles.Domain.Services;
 using peru_ventura_center.profiles.Interfaces.REST.Resources;
 using System.Net.Mime;
 using Swashbuckle.AspNetCore.Annotations;
-using LearningCenterPlatform.Profiles.Application.Internal.CommandServices;
 using peru_ventura_center.Profiles.Interfaces.REST.Resources;
 using peru_ventura_center.Profiles.Interfaces.REST.Transformers;
 

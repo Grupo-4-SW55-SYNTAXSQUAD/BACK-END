@@ -4,6 +4,7 @@ using peru_ventura_center.profiles.Domain.Model.Queries;
 using peru_ventura_center.profiles.Domain.Services;
 using peru_ventura_center.profiles.Interfaces.REST.Resources;
 using peru_ventura_center.profiles.Interfaces.REST.Transformers;
+using peru_ventura_center.Publishing.Application.Internal.OutboundServices.ACL;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Mime;
 

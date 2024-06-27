@@ -69,9 +69,12 @@ namespace peru_ventura_center.publishing.Interfaces.REST
             var activity = await externalIFeedbackService.FetchActivityById(promotion.DestinationTrip.ActivityId);
             if (activity is null) return BadRequest("No se pudo encontrar la actividad correspondiente.");
 
+            var category = await externalIFeedbackService.FetchCategoryById(promotion.DestinationTrip.Activity.CategoryId);
+            if (category is null) return BadRequest("No se pudo encontrar la categoría correspondiente.");
          
             promotion.DestinationTrip = destinationTrip;
             promotion.DestinationTrip.Activity = activity;
+            promotion.DestinationTrip.Activity.Category = category;
 
 
             // Convertir la nueva promoción a un recurso para la respuesta

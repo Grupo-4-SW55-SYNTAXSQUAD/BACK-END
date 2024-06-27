@@ -5,7 +5,7 @@ using peru_ventura_center.Payments.Interfaces.REST.Transformers;
 using peru_ventura_center.Payments.Interfaces.REST.Resources;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Mime;
-using peru_ventura_center.profiles.Application.Internal.OutboundServices.ACL;
+using peru_ventura_center.Publishing.Application.Internal.OutboundServices.ACL;
 
 namespace peru_ventura_center.Payments.Interfaces.REST
 {
