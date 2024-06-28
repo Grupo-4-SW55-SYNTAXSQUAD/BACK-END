@@ -19,5 +19,8 @@ namespace peru_ventura_center.publishing.Infraestructure.Persistence.EFC.Reposit
                 .Include(p => p.DestinationTrip.Activity)
                 .Include(p => p.DestinationTrip.Activity.Category)
                 .ToListAsync();
+
+
+        
     }
 }

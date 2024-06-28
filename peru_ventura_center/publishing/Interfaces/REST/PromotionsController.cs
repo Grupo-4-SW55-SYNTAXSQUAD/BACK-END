@@ -4,8 +4,11 @@ using peru_ventura_center.publishing.Domain.Services;
 using peru_ventura_center.publishing.Interfaces.REST.Resources;
 using peru_ventura_center.publishing.Interfaces.REST.Transformers;
 using peru_ventura_center.Publishing.Application.Internal.OutboundServices.ACL;
+using peru_ventura_center.Publishing.Domain.Model.Entities;
 using peru_ventura_center.Publishing.Domain.Model.Queries;
 using peru_ventura_center.Publishing.Domain.Services;
+using peru_ventura_center.Publishing.Interfaces.REST.Resources;
+using peru_ventura_center.Publishing.Interfaces.REST.Transformers;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Mime;
 
@@ -77,6 +80,43 @@ namespace peru_ventura_center.publishing.Interfaces.REST
             // Convertir la nueva promoción a un recurso para la respuesta
             var resource = PromotionResourceFromEntityAssembler.ToResourceFromEntity(promotion);
             // Devolver la respuesta con el recurso de la promoción creada
+
+            return CreatedAtAction(nameof(GetPromotionById), new { PromotionId = resource.PromotionId }, resource);
+        }
+
+        [HttpDelete]
+        [SwaggerOperation(
+           Summary = "Delete promotions",
+           Description = "Delete a promotion with a given id",
+            OperationId = "DeletePromotion"
+         )]
+        [SwaggerResponse(201, "The promotion was deleted")]
+        public async Task<IActionResult> DeletePromotion([FromBody] DeletePromotionResource deletePromotionResource)
+        {
+            var deletePromotionCommand = DeletePromotionCommandFromResourceAssembler.ToCommandFromResource(deletePromotionResource);
+            var promotion = await promotionCommandService.Handle(deletePromotionCommand);
+            if (promotion is null) return BadRequest();
+
+            var resource = PromotionResourceFromEntityAssembler.ToResourceFromEntity(promotion);
+
+            return CreatedAtAction(nameof(GetPromotionById), new { PromotionId = resource.PromotionId }, resource);
+        }
+
+        [HttpPatch]
+        [SwaggerOperation(
+            Summary = "Patch promotions",
+            Description = "Update parcially a promotion with a given data",
+            OperationId = "PatchPromotions"
+            )]
+        [SwaggerResponse(201, "The promotion was updated")]
+        public async Task<IActionResult> PatchPromotion([FromBody] PatchPromotionResource patchPromotionResource)
+        {
+
+            var patchPromotionCommand = PatchPromotionCommandFromResourceAssembler.ToCommandFromResource(patchPromotionResource);
+            var promotion = await promotionCommandService.Handle(patchPromotionCommand);
+            if (promotion is null) return BadRequest();
+
+            var resource = PromotionResourceFromEntityAssembler.ToResourceFromEntity(promotion);
 
             return CreatedAtAction(nameof(GetPromotionById), new { PromotionId = resource.PromotionId }, resource);
         }
