@@ -8193,19 +8193,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PAOLO\\.nuget\\packages\\": {}
+    "C:\\Users\\PERSONAL\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\peru_ventura_center.csproj",
+      "projectUniqueName": "D:\\App-web\\backenndd\\BACK-END\\peru_ventura_center\\peru_ventura_center.csproj",
       "projectName": "peru_ventura_center",
-      "projectPath": "D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\peru_ventura_center.csproj",
-      "packagesPath": "C:\\Users\\PAOLO\\.nuget\\packages\\",
-      "outputPath": "D:\\PROGRAMACION\\5ciclo\\APP_WEB\\back_end\\back_end_test\\peru_ventura_center\\peru_ventura_center\\obj\\",
+      "projectPath": "D:\\App-web\\backenndd\\BACK-END\\peru_ventura_center\\peru_ventura_center.csproj",
+      "packagesPath": "C:\\Users\\PERSONAL\\.nuget\\packages\\",
+      "outputPath": "D:\\App-web\\backenndd\\BACK-END\\peru_ventura_center\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PAOLO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PERSONAL\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8289,7 +8289,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

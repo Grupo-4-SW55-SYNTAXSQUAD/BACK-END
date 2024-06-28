@@ -16,5 +16,32 @@ namespace peru_ventura_center.Feedback.Application.Internal.CommandServices
             await unitOfWork.CompleteAsync(); // Save the changes
             return activity;
         }
+
+        public async Task<Activity?> Handle(DeleteActivityCommand command)
+        {
+            var activity = await activityRepository.FindByIdAsync(command.ActivityId);
+
+            if (activity == null) {
+                return null;
+            }
+            activityRepository.Remove(activity);
+            await unitOfWork.CompleteAsync();
+            return activity;
+        }
+
+        public async Task<Activity> Handle(PatchActivityCommand command)
+        {
+            var activity = await activityRepository.FindByIdAsync(command.ActivityId);
+
+            if (activity == null) {
+                return null;
+            }
+
+            activity.Name = command.name;
+            activityRepository.Update(activity);
+
+            await unitOfWork.CompleteAsync();
+            return activity;
+        }
     }
 }

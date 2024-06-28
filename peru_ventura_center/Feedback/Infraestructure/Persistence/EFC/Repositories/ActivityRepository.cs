@@ -6,7 +6,7 @@ using peru_ventura_center.Shared.Infraestructure.Persistence.EFC.Configuration;
 
 namespace peru_ventura_center.Feedback.Infraestructure.Persistence.EFC.Repositories
 {
-    public class ActivityRepository(AppDbContext context) : BaseRepository<Activity>(context),IActivityRepository
+    public class ActivityRepository(AppDbContext context) : BaseRepository<Activity>(context), IActivityRepository
     {
         public new async Task<Activity?> FindByIdAsync(int ActivityId) => await Context.Set<Activity>()
             .Include(a => a.Category)
